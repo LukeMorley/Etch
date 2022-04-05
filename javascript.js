@@ -13,12 +13,7 @@ let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
-
-function setCurrentColor(color){
-    currentColor = color;
-}
-
-colorPicker.onchange = (e) => setCurrentColor(e.target.value)
+colorPicker.onchange = (e) => currentColor = e.target.value;
 
 let gridSize = 32;
 
@@ -63,4 +58,3 @@ function createGrid(gridSize){
         grid.appendChild(row);
     }
 }
-
