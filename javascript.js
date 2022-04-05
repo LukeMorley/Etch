@@ -10,33 +10,20 @@ const clickButton = document.getElementById("click");
 const DEFAULTCOLOR = '#000000';
 const gridWidth = 600;
 let currentColor = DEFAULTCOLOR;
-let mode = 'click&drag'
+let mode = 'click&drag';
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 window.onmouseup = () => (mouseDown = false);
 document.onmouseleave = () => (mouseDown = false);
-
 colorPicker.onchange = (e) => currentColor = e.target.value;
+button.onclick = () => clearGrid();
+classicButton.onclick = () => setMode('classic');
+clickButton.onclick = () => setMode('click&drag');
+clearButton.onclick = () => clearGrid();
 
 let gridSize = 32;
-
-button.onclick = function(){
-    clearGrid();
-}
-
-classicButton.onclick = function(){
-    setMode('classic');
-}
-
-clickButton.onclick = function(){
-    setMode('click&drag');
-}
-
-clearButton.onclick = function(){
-    clearGrid();
-}
 
 slider.oninput = function(){
     value.innerHTML=this.value+' X '+this.value;
@@ -73,8 +60,9 @@ function createGrid(gridSize){
             cell.style.height = cellSize.toString()+'px';
             cell.style.width = cellSize.toString()+'px';
             cell.setAttribute('draggable',false);
-            cell.addEventListener("mouseover",paint)
-            cell.addEventListener("mousedown",paint)
+            cell.setAttribute('ondragstart',"return false");
+            cell.addEventListener("mouseover",paint);
+            cell.addEventListener("mousedown",paint);
             row.appendChild(cell);
         }
         grid.appendChild(row);
