@@ -4,14 +4,19 @@ const value = document.getElementById("sizeVariable");
 const button = document.getElementById("createGrid");
 const colorPicker = document.getElementById("colorpicker");
 const clearButton = document.getElementById("clearGrid");
+const classicButton = document.getElementById("hover");
+const clickButton = document.getElementById("click");
 
 const DEFAULTCOLOR = '#000000';
-const gridWidth = 700;
+const gridWidth = 600;
 let currentColor = DEFAULTCOLOR;
+let mode = 'click&drag'
 
-let mouseDown = false
-document.body.onmousedown = () => (mouseDown = true)
-document.body.onmouseup = () => (mouseDown = false)
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+window.onmouseup = () => (mouseDown = false);
+document.onmouseleave = () => (mouseDown = false);
 
 colorPicker.onchange = (e) => currentColor = e.target.value;
 
@@ -19,6 +24,14 @@ let gridSize = 32;
 
 button.onclick = function(){
     clearGrid();
+}
+
+classicButton.onclick = function(){
+    setMode('classic');
+}
+
+clickButton.onclick = function(){
+    setMode('click&drag');
 }
 
 clearButton.onclick = function(){
@@ -36,8 +49,17 @@ function clearGrid(){
 }
 
 function paint(e){
-    if (e.type === 'mouseover' && !mouseDown) return
-    this.style.backgroundColor = currentColor;
+    if(mode=='classic'){
+        this.style.backgroundColor = currentColor;
+    }else{
+        if (e.type === 'mouseover' && !mouseDown) return
+        this.style.backgroundColor = currentColor;
+    }
+}
+
+window.onload = function(){
+    createGrid(gridSize);
+    clickTheButton('click&drag');
 }
 
 function createGrid(gridSize){
@@ -56,5 +78,23 @@ function createGrid(gridSize){
             row.appendChild(cell);
         }
         grid.appendChild(row);
+    }
+}
+
+function setMode(newMode){
+    clickTheButton(newMode);
+    mode = newMode;
+}
+
+function clickTheButton(newMode){
+    if(mode=='click&drag'){
+        clickButton.classList.remove('active');
+    }else if (mode=='classic'){
+        classicButton.classList.remove('active');
+    }
+    if(newMode=='click&drag'){
+        clickButton.classList.add('active');
+    }else if (newMode=='classic'){
+        classicButton.classList.add('active');
     }
 }

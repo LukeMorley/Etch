@@ -4,8 +4,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     margin: 0;
+    background-color: rgb(206, 206, 206);
 }
 
 .title{
@@ -24,8 +24,8 @@ body{
 
 #gridContainer{
     display: flex;
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 600px;
     outline: 2px solid black;
 }
 
@@ -45,6 +45,7 @@ body{
     text-align: center;
     padding: 5px;
     gap: 15px;
+    outline: 2px solid black;
 }
 
 input[type="color"] {
@@ -56,4 +57,41 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 }
 input[type="color"]::-webkit-color-swatch {
 	border: none;
+}
+
+#middle{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    width: 65vw;
+    gap:50px;
+}
+
+#middle2{
+    gap:5px;
+}
+button.active{
+    background-color: blue;
+    color: white;
+}
+
+button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#000000;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+button:hover{
+    color:#000000;
+    background-color: #FFFFFF;
 }

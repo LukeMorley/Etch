@@ -14,20 +14,24 @@
             ETCH-A-SKETCH
         </div>
     </div>
-    <div id="gridContainer" draggable="false"></div>
-    <div id="middle" class="mid">
-        <div id="colorPicker">
-            <input type="color" id="colorpicker" value="#000000">
+    <div id ="middle">
+        <div id="middle2" class="mid">
+            <div id="colorPicker">
+                <input type="color" id="colorpicker" value="#000000">
+            </div>
+            <div id="sliderContainer">
+                <div id="gridSize">Grid Size:</div>
+                <div id="sizeVariable">32 X 32</div>
+                <input type="range" id="gridSizeSlider" min="1" max="64" value="32">
+                <button id="createGrid">Create Grid</button>
+                <button id="clearGrid">Clear</button>
+                <button id="hover">Classic Mode</button>
+                <button id="click">Click & Drag</button>
+            </div>
         </div>
-        <div id="sliderContainer">
-            <div id="gridSize">Grid Size:</div>
-            <div id="sizeVariable">32 X 32</div>
-            <input type="range" id="gridSizeSlider" min="1" max="64" value="32">
-            <button id="createGrid">Create Grid</button>
-            <button id="clearGrid">Clear</button>
-        </div>
-        
+        <div id="gridContainer" draggable="false"></div>
     </div>
+
     <div class="footer">
         Written by lmdev
     </div>
