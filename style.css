@@ -25,6 +25,7 @@ body{
     display: flex;
     width: 500px;
     height: 500px;
+    outline: 2px solid black;
 }
 
 .footer{
@@ -34,11 +35,24 @@ body{
 .cell{
     text-align: center;
     background: white;
-    outline: 2px solid black;
+    outline: 1px solid black;
 }
 
 #sliderContainer{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    padding: 5px;
+    gap: 15px;
 }
 
+input[type="color"] {
+	width: 135px;
+	height: 32px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}

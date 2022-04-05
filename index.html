@@ -8,21 +8,23 @@
     <script src="javascript.js" defer></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body draggable="false">
     <div class="header">
         <div class="title">
             ETCH-A-SKETCH
         </div>
     </div>
-    <div id="gridContainer"></div>
+    <div id="gridContainer" draggable="false"></div>
     <div id="middle" class="mid">
         <div id="colorPicker">
-            <input type="color" id="colorpicker" value="#0000ff">
+            <input type="color" id="colorpicker" value="#000000">
         </div>
         <div id="sliderContainer">
-            <div id="sizeVariable">32</div>
-            <input type="range" id="gridSizeSlider" min="0" max="64" value="32">
+            <div id="gridSize">Grid Size:</div>
+            <div id="sizeVariable">32 X 32</div>
+            <input type="range" id="gridSizeSlider" min="1" max="64" value="32">
             <button id="createGrid">Create Grid</button>
+            <button id="clearGrid">Clear</button>
         </div>
         
     </div>
