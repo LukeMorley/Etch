@@ -6,7 +6,7 @@ const colorPicker = document.getElementById("colorpicker");
 const clearButton = document.getElementById("clearGrid");
 
 const DEFAULTCOLOR = '#000000';
-const gridWidth = 500;
+const gridWidth = 700;
 let currentColor = DEFAULTCOLOR;
 
 let mouseDown = false
