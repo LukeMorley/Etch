@@ -1,0 +1,44 @@
+body{
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#gridContainer{
+    display: flex;
+    width: 500px;
+    height: 500px;
+}
+
+.footer{
+    text-align: center;
+}
+
+.cell{
+    text-align: center;
+    background: white;
+    outline: 2px solid black;
+}
+
+#sliderContainer{
+    display: flex;
+    flex-direction: column;
+}
+
