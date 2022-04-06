@@ -2,7 +2,6 @@
 const grid = document.getElementById("gridContainer");
 const slider = document.getElementById("gridSizeSlider");
 const value = document.getElementById("sizeVariable");
-const button = document.getElementById("createGrid");
 const colorPicker = document.getElementById("colorpicker");
 const clearButton = document.getElementById("clearGrid");
 const classicButton = document.getElementById("hover");
@@ -16,7 +15,7 @@ let currentColor = DEFAULTCOLOR;
 let mode = 'click&drag';
 let mouseDown = false;
 let rainbowMode = false;
-let gridSize = 32;
+let gridSize = 50;
 
 //Set functions to buttons & mouse behaviour when dragging outside the
 //paintable area
@@ -25,7 +24,6 @@ document.body.onmouseup = () => (mouseDown = false);
 window.onmouseup = () => (mouseDown = false);
 document.onmouseleave = () => (mouseDown = false);
 colorPicker.onchange = (e) => currentColor = e.target.value;
-button.onclick = () => clearGrid();
 classicButton.onclick = () => setMode('classic');
 clickButton.onclick = () => setMode('click&drag');
 rainbowButton.onclick = () => toggle();
@@ -46,6 +44,7 @@ function toggle(){
 slider.oninput = function(){
     value.innerHTML=this.value+' X '+this.value;
     gridSize=this.value;
+    clearGrid();
 }
 
 //Generate a random Hex colour for Rainbow Mode
